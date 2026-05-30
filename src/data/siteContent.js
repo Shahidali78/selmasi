@@ -37,7 +37,7 @@ export const about = {
 export const services = {
   label: 'What We Do',
   title: 'Our Services',
-  subtitle: 'Practical, results-driven automation designed around your business workflows and growth goals.',
+  subtitle: 'Simple automation tools that help your business respond faster, follow up better, and reduce admin work.',
   items: [
     { title: 'Lead Response Automation', desc: 'Respond faster to new leads and reduce lost opportunities with simple automated follow-up systems.' },
     { title: 'Appointment Booking & Follow-Up', desc: 'Help prospects book easily and stay engaged with reminders and streamlined communication.' },
@@ -94,11 +94,11 @@ export const pricing = {
 export const calculator = {
   label: 'Fee Calculator',
   title: 'Calculate Your Total',
-  text: 'Enter the number of learners and select your package. We will calculate the correct total automatically before payment.',
+  text: 'Select your package and enter the number of learners. We will calculate the setup fee and monthly total for you.',
   fieldLabel: 'Number of Learners',
   resultLabel: 'Total Amount',
   btnText: 'Proceed to Payment',
-  pendingNotice: 'Live payment will be activated once merchant account approval is complete.',
+  pendingNotice: 'Online payment via PayGate will be activated once merchant setup is complete.',
 }
 
 export const contact = {

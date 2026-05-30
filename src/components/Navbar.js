@@ -39,7 +39,7 @@ export default function Navbar() {
             href={site.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1DAF54] text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all hover:-translate-y-0.5 shadow-sm"
+            className="hidden md:inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5c] text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all hover:-translate-y-0.5 shadow-sm hover:shadow-md"
           >
             <IconWhatsApp className="w-4 h-4" />
             WhatsApp
@@ -65,7 +65,7 @@ export default function Navbar() {
             </a>
           ))}
           <a href={site.whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}
-            className="mt-1 flex items-center justify-center gap-2 bg-[#25D366] text-white font-semibold py-3 rounded-full text-sm">
+            className="mt-1 flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5c] text-white font-semibold py-3 rounded-full text-sm transition-colors">
             <IconWhatsApp className="w-4 h-4" /> Chat on WhatsApp
           </a>
         </div>

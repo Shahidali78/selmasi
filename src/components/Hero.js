@@ -23,7 +23,7 @@ export default function Hero() {
             <div className="reveal inline-flex items-center gap-2.5 bg-beige border border-sand-lt rounded-full px-5 py-2 mb-7">
               <IconBolt className="w-3.5 h-3.5 text-sand" />
               <span className="text-xs font-semibold tracking-widest uppercase text-accent">
-                Business Automation
+                Practical Automation
               </span>
             </div>
 
@@ -47,7 +47,7 @@ export default function Hero() {
                 href={site.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex justify-center items-center gap-2.5 bg-[#25D366] hover:bg-[#1DAF54] text-white font-semibold text-[15px] px-8 py-4 rounded-lg transition-all hover:-translate-y-0.5"
+                className="inline-flex justify-center items-center gap-2.5 bg-[#25D366] hover:bg-[#1ebe5c] text-white font-semibold text-[15px] px-8 py-4 rounded-lg transition-all hover:-translate-y-0.5 shadow-sm"
               >
                 <IconWhatsApp className="w-[18px] h-[18px]" />
                 {hero.cta2}
@@ -61,37 +61,65 @@ export default function Hero() {
 
           <div className="hidden md:block reveal">
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white border border-beige-md rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow">
-                <div className="w-10 h-10 rounded-xl bg-beige border border-sand-lt flex items-center justify-center text-sand mb-4">
-                  <IconBolt className="w-4 h-4" />
+              {[
+                {
+                  Icon: IconBolt,
+                  title: 'Faster Responses',
+                  desc: 'Automated follow-ups help reduce missed leads',
+                  dark: false,
+                },
+                {
+                  Icon: IconCalendar,
+                  title: 'Save Admin Time',
+                  desc: 'Reduce repetitive manual tasks each week',
+                  dark: false,
+                },
+                {
+                  Icon: IconRefresh,
+                  title: 'Always-On Systems',
+                  desc: 'Keep enquiries and follow-ups moving 24/7',
+                  dark: false,
+                },
+                {
+                  Icon: IconChat,
+                  title: 'Fewer Missed Enquiries',
+                  desc: 'WhatsApp and form enquiries handled faster',
+                  dark: true,
+                },
+              ].map((card, i) => (
+                <div
+                  key={card.title}
+                  className={`rounded-2xl p-6 transition-shadow hover:shadow-lg ${
+                    card.dark
+                      ? 'bg-brown border border-brown'
+                      : 'bg-white border border-beige-md shadow-sm'
+                  }`}
+                >
+                  <div
+                    className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${
+                      card.dark
+                        ? 'bg-sand/20 text-sand'
+                        : 'bg-beige border border-sand-lt text-sand'
+                    }`}
+                  >
+                    <card.Icon className="w-4 h-4" />
+                  </div>
+                  <h3
+                    className={`font-display text-lg font-bold mb-1.5 ${
+                      card.dark ? 'text-white' : 'text-brown'
+                    }`}
+                  >
+                    {card.title}
+                  </h3>
+                  <p
+                    className={`text-sm leading-snug ${
+                      card.dark ? 'text-white/60' : 'text-muted'
+                    }`}
+                  >
+                    {card.desc}
+                  </p>
                 </div>
-                <div className="font-display text-2xl font-bold text-brown mb-1">60%</div>
-                <p className="text-muted text-sm leading-snug">Faster lead response with automated follow-ups</p>
-              </div>
-
-              <div className="bg-white border border-beige-md rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow mt-8">
-                <div className="w-10 h-10 rounded-xl bg-beige border border-sand-lt flex items-center justify-center text-sand mb-4">
-                  <IconCalendar className="w-4 h-4" />
-                </div>
-                <div className="font-display text-2xl font-bold text-brown mb-1">10hrs</div>
-                <p className="text-muted text-sm leading-snug">Saved per week on admin and manual processes</p>
-              </div>
-
-              <div className="bg-white border border-beige-md rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow">
-                <div className="w-10 h-10 rounded-xl bg-beige border border-sand-lt flex items-center justify-center text-sand mb-4">
-                  <IconRefresh className="w-4 h-4" />
-                </div>
-                <div className="font-display text-2xl font-bold text-brown mb-1">24/7</div>
-                <p className="text-muted text-sm leading-snug">Systems running while you focus on growth</p>
-              </div>
-
-              <div className="bg-brown border border-brown rounded-2xl p-6 mt-8">
-                <div className="w-10 h-10 rounded-xl bg-sand/20 flex items-center justify-center text-sand mb-4">
-                  <IconChat className="w-4 h-4" />
-                </div>
-                <div className="font-display text-2xl font-bold text-white mb-1">Zero</div>
-                <p className="text-white/60 text-sm leading-snug">Missed enquiries with WhatsApp auto-response</p>
-              </div>
+              ))}
             </div>
           </div>
         </div>

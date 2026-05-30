@@ -13,7 +13,7 @@ export default function Footer() {
               <span className="font-display text-2xl font-bold">Selmasi</span>
             </div>
             <p className="text-white/60 text-sm leading-relaxed max-w-[280px]">
-              Smart business automation for growing companies. Practical solutions that replace manual processes with lean, efficient workflows.
+              Practical automation for schools and businesses. We help you save time, respond faster, and reduce manual admin work.
             </p>
           </div>
 
