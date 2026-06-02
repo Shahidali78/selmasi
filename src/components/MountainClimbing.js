@@ -65,8 +65,7 @@ export default function MountainClimbing() {
 
           <div className="bg-cream rounded-2xl border-2 border-beige-md p-8 md:p-10">
             {/* Price note */}
-            <div className="flex items-center gap-3 mb-6 bg-beige rounded-xl p-4 border border-beige-md">
-              <span className="text-2xl leading-none">⛰️</span>
+            <div className="mb-6 bg-beige rounded-xl p-4 border border-beige-md">
               <p className="text-sm font-medium text-brown">{mountainClimbing.priceNote}</p>
             </div>
 
