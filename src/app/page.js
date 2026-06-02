@@ -3,8 +3,9 @@ import Hero              from '@/components/Hero'
 import About             from '@/components/About'
 import Services          from '@/components/Services'
 import Pricing           from '@/components/Pricing'
-import CalculatorPayment from '@/components/CalculatorPayment'
-import ContactForm       from '@/components/ContactForm'
+import CalculatorPayment  from '@/components/CalculatorPayment'
+import MountainClimbing   from '@/components/MountainClimbing'
+import ContactForm        from '@/components/ContactForm'
 import Booking           from '@/components/Booking'
 import WhatsAppCTA       from '@/components/WhatsAppCTA'
 import Testimonials      from '@/components/Testimonials'
@@ -22,6 +23,7 @@ export default function Home() {
         <Services />
         <Pricing />
         <CalculatorPayment />
+        <MountainClimbing />
         <ContactForm />
         <Booking />
         <WhatsAppCTA />

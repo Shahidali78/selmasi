@@ -141,6 +141,18 @@ export const faqs = [
   { q: 'Can this system grow later?', a: 'Yes, this starter version can be expanded in later phases.' },
 ]
 
+export const mountainClimbing = {
+  label: 'Mountain Climbing',
+  title: 'Mountain Climbing',
+  text: 'Select the number of people and pay online before arrival.',
+  priceNote: 'R60 per person',
+  fieldLabel: 'Number of People',
+  totalLabel: 'Total Amount',
+  btnText: 'Pay Now',
+  pendingNotice: 'Online payment via PayGate will be activated once merchant setup is complete.',
+  pricePerPerson: 60,
+}
+
 export const footer = {
   copy: `© ${new Date().getFullYear()} Selmasi. All rights reserved.`,
   tagline: 'Made in South Africa',
