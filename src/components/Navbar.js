@@ -22,7 +22,7 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-5">
         <div className="flex items-center justify-between h-16 md:h-[72px]">
-          <a href="#" className="flex items-center gap-3">
+          <a href="#home" className="flex items-center gap-3">
             <Image src="/logo.png" alt="Selmasi" width={52} height={52} className="rounded-full shadow-sm" priority />
             <span className="font-display text-2xl font-bold text-brown">Selmasi</span>
           </a>

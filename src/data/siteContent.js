@@ -9,10 +9,11 @@ export const site = {
 
 export const nav = {
   links: [
-    { label: 'Services', href: '#services' },
-    { label: 'Pricing',  href: '#pricing'  },
-    { label: 'Contact',  href: '#contact'  },
-    { label: 'Book',     href: '#booking'  },
+    { label: 'Home',              href: '#home'              },
+    { label: 'Services',          href: '#services'          },
+    { label: 'Pricing',           href: '#pricing'           },
+    { label: 'Mountain Climbing', href: '#mountain-climbing' },
+    { label: 'Contact',           href: '#contact'           },
   ],
 }
 

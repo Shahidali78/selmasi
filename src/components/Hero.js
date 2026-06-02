@@ -7,7 +7,7 @@ export default function Hero() {
   const ref = useReveal()
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center overflow-hidden pt-16">
+    <section ref={ref} id="home" className="relative min-h-screen flex items-center overflow-hidden pt-16">
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
