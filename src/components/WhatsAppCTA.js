@@ -1,6 +1,6 @@
 'use client'
 import { useReveal } from '@/hooks/useReveal'
-import { whatsapp, site } from '@/data/siteContent'
+import { whatsapp, waLink, waMessages } from '@/data/siteContent'
 import { IconWhatsApp } from '@/components/Icons'
 
 export default function WhatsAppCTA() {
@@ -12,7 +12,7 @@ export default function WhatsAppCTA() {
           {whatsapp.text}
         </p>
         <a
-          href={site.whatsappUrl}
+          href={waLink(waMessages.general)}
           target="_blank"
           rel="noopener noreferrer"
           className="reveal inline-flex items-center gap-2.5 bg-[#25D366] hover:bg-[#1ebe5c] text-white font-semibold px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 text-[15px] shadow-md hover:shadow-lg"

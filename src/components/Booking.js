@@ -1,6 +1,6 @@
 'use client'
 import { useReveal } from '@/hooks/useReveal'
-import { booking, site } from '@/data/siteContent'
+import { booking, waLink, waMessages } from '@/data/siteContent'
 import { IconCalendar } from '@/components/Icons'
 
 export default function Booking() {
@@ -17,12 +17,12 @@ export default function Booking() {
           <div className="relative z-10">
             <h3 className="font-display text-2xl md:text-3xl font-bold mb-4">Let's Discuss Your Needs</h3>
             <p className="text-white/75 max-w-md mx-auto mb-8 text-base leading-relaxed">{booking.text}</p>
-            <a href={`${site.whatsappUrl}?text=Hi%20Selmasi%2C%20I'd%20like%20to%20book%20a%20consultation.`}
+            <a href={waLink(waMessages.consultation)}
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 bg-sand hover:bg-sand-dk text-white font-semibold text-[15px] px-8 py-4 rounded-xl transition-all hover:-translate-y-0.5">
-              <IconCalendar className="w-4 h-4" /> {booking.btnText} via WhatsApp
+              <IconCalendar className="w-4 h-4" /> {booking.btnText}
             </a>
-            <p className="text-white/40 text-sm mt-4">Or scroll up to use the contact form.</p>
+            <p className="text-white/40 text-sm mt-4">Booked via WhatsApp — or scroll up to use the contact form.</p>
           </div>
         </div>
       </div>

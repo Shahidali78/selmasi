@@ -1,7 +1,7 @@
 'use client'
 import { useReveal } from '@/hooks/useReveal'
-import { hero, site } from '@/data/siteContent'
-import { IconWhatsApp, IconBolt, IconCalendar, IconRefresh, IconChat } from '@/components/Icons'
+import { hero, waLink, waMessages } from '@/data/siteContent'
+import { IconWhatsApp, IconBolt, IconCalendar, IconUser, IconBell, IconCheck } from '@/components/Icons'
 
 export default function Hero() {
   const ref = useReveal()
@@ -44,7 +44,7 @@ export default function Hero() {
                 {hero.cta1} →
               </a>
               <a
-                href={site.whatsappUrl}
+                href={waLink(waMessages.general)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex justify-center items-center gap-2.5 bg-[#25D366] hover:bg-[#1ebe5c] text-white font-semibold text-[15px] px-8 py-4 rounded-lg transition-all hover:-translate-y-0.5 shadow-sm"
@@ -59,67 +59,77 @@ export default function Hero() {
             </p>
           </div>
 
+          {/* Automation flow mockup — how an enquiry moves through the system */}
           <div className="hidden md:block reveal">
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                {
-                  Icon: IconBolt,
-                  title: 'Faster Responses',
-                  desc: 'Automated follow-ups help reduce missed leads',
-                  dark: false,
-                },
-                {
-                  Icon: IconCalendar,
-                  title: 'Save Admin Time',
-                  desc: 'Reduce repetitive manual tasks each week',
-                  dark: false,
-                },
-                {
-                  Icon: IconRefresh,
-                  title: 'Always-On Systems',
-                  desc: 'Keep enquiries and follow-ups moving 24/7',
-                  dark: false,
-                },
-                {
-                  Icon: IconChat,
-                  title: 'Fewer Missed Enquiries',
-                  desc: 'WhatsApp and form enquiries handled faster',
-                  dark: true,
-                },
-              ].map((card, i) => (
-                <div
-                  key={card.title}
-                  className={`rounded-2xl p-6 transition-shadow hover:shadow-lg ${
-                    card.dark
-                      ? 'bg-brown border border-brown'
-                      : 'bg-white border border-beige-md shadow-sm'
-                  }`}
-                >
-                  <div
-                    className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${
-                      card.dark
-                        ? 'bg-sand/20 text-sand'
-                        : 'bg-beige border border-sand-lt text-sand'
-                    }`}
-                  >
-                    <card.Icon className="w-4 h-4" />
-                  </div>
-                  <h3
-                    className={`font-display text-lg font-bold mb-1.5 ${
-                      card.dark ? 'text-white' : 'text-brown'
-                    }`}
-                  >
-                    {card.title}
-                  </h3>
-                  <p
-                    className={`text-sm leading-snug ${
-                      card.dark ? 'text-white/60' : 'text-muted'
-                    }`}
-                  >
-                    {card.desc}
-                  </p>
+            <div className="bg-white rounded-3xl border border-beige-md shadow-xl p-6 max-w-[420px] mx-auto">
+              <div className="flex items-center justify-between pb-4 border-b border-beige-md mb-5">
+                <div className="flex items-center gap-2.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#25D366] pulse-dot" />
+                  <span className="text-sm font-semibold text-brown">Automation in action</span>
                 </div>
-              ))}
+                <span className="text-[11px] font-medium text-muted bg-beige rounded-full px-3 py-1">Live flow</span>
+              </div>
+
+              <div className="space-y-3.5">
+                {[
+                  {
+                    Icon: IconWhatsApp,
+                    iconCls: 'bg-[#25D366]/10 text-[#25D366]',
+                    title: 'WhatsApp enquiry received',
+                    desc: '“Hi, do you have space for Grade 4 next year?”',
+                    time: '14:02',
+                  },
+                  {
+                    Icon: IconBolt,
+                    iconCls: 'bg-sand/15 text-sand-dk',
+                    title: 'Automated response sent',
+                    desc: 'Instant reply with enrollment info & next steps',
+                    time: '14:02',
+                  },
+                  {
+                    Icon: IconCalendar,
+                    iconCls: 'bg-sand/15 text-sand-dk',
+                    title: 'Visit booked & follow-up set',
+                    desc: 'School tour scheduled, reminder queued',
+                    time: '14:05',
+                  },
+                  {
+                    Icon: IconUser,
+                    iconCls: 'bg-sand/15 text-sand-dk',
+                    title: 'Customer details captured',
+                    desc: 'Name, contact & grade saved automatically',
+                    time: '14:05',
+                  },
+                  {
+                    Icon: IconBell,
+                    iconCls: 'bg-brown/10 text-brown',
+                    title: 'Business notified',
+                    desc: 'New qualified lead ready for the team',
+                    time: '14:06',
+                  },
+                ].map((step, i, arr) => (
+                  <div key={step.title} className="relative flex items-start gap-3.5">
+                    {i < arr.length - 1 && (
+                      <span className="absolute left-[19px] top-10 bottom-[-14px] w-px bg-beige-md" aria-hidden="true" />
+                    )}
+                    <div className={`relative w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${step.iconCls}`}>
+                      <step.Icon className="w-[18px] h-[18px]" />
+                    </div>
+                    <div className="flex-1 bg-beige/60 border border-beige-md rounded-xl px-4 py-3">
+                      <div className="flex items-center justify-between gap-2 mb-0.5">
+                        <p className="text-[13px] font-semibold text-brown">{step.title}</p>
+                        <span className="text-[10px] text-muted flex-shrink-0">{step.time}</span>
+                      </div>
+                      <p className="text-xs text-muted leading-snug">{step.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-5 pt-4 border-t border-beige-md flex items-center justify-center gap-2 text-xs font-medium text-muted">
+                <IconCheck className="w-3.5 h-3.5 text-[#25D366]" />
+                Handled automatically — no admin time spent
+              </div>
             </div>
           </div>
         </div>
