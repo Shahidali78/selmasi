@@ -3,7 +3,14 @@ import { useReveal } from '@/hooks/useReveal'
 import { services, waLink, waMessages } from '@/data/siteContent'
 import { IconBolt, IconCalendar, IconRefresh, IconChat, IconBell, IconWhatsApp } from '@/components/Icons'
 
-const icons = [IconBolt, IconCalendar, IconRefresh, IconChat, IconBell]
+// One unique colour identity per service card
+const tiles = [
+  { Icon: IconBolt,     cls: 'bg-gradient-to-br from-amber-400 to-orange-500 shadow-lg shadow-orange-400/40' },
+  { Icon: IconCalendar, cls: 'bg-gradient-to-br from-sky-400 to-blue-600 shadow-lg shadow-blue-400/40' },
+  { Icon: IconRefresh,  cls: 'bg-gradient-to-br from-violet-400 to-purple-600 shadow-lg shadow-purple-400/40' },
+  { Icon: IconChat,     cls: 'bg-gradient-to-br from-emerald-400 to-green-600 shadow-lg shadow-green-400/40' },
+  { Icon: IconBell,     cls: 'bg-gradient-to-br from-rose-400 to-pink-600 shadow-lg shadow-rose-400/40' },
+]
 
 export default function Services() {
   const ref = useReveal()
@@ -18,7 +25,7 @@ export default function Services() {
 
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.items.map((s, i) => {
-            const Icon = icons[i % icons.length]
+            const { Icon, cls } = tiles[i % tiles.length]
             return (
               <div
                 key={s.title}
@@ -26,8 +33,8 @@ export default function Services() {
                 style={{ transitionDelay: `${i * 60}ms` }}
               >
                 <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-sand to-sand-dk scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 rounded-t-2xl" />
-                <div className="w-[52px] h-[52px] rounded-xl bg-beige border border-sand-lt flex items-center justify-center text-sand mb-5">
-                  <Icon className="w-5 h-5" />
+                <div className={`w-[56px] h-[56px] rounded-2xl flex items-center justify-center text-white mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 ${cls}`}>
+                  <Icon className="w-6 h-6" />
                 </div>
                 <h3 className="font-display text-[1.35rem] font-bold text-brown mb-3">{s.title}</h3>
                 <p className="text-muted text-[15px] leading-relaxed mb-6 flex-1">{s.desc}</p>

@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { useReveal } from '@/hooks/useReveal'
 import { hero, waLink, waMessages } from '@/data/siteContent'
 import { IconWhatsApp, IconBolt, IconCalendar, IconUser, IconBell, IconCheck } from '@/components/Icons'
@@ -155,11 +156,14 @@ export default function Hero() {
       <div className="relative max-w-7xl mx-auto px-5 md:px-8 w-full py-20 md:py-28">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div>
-            <div className="reveal inline-flex items-center gap-2.5 bg-beige border border-sand-lt rounded-full px-5 py-2.5 mb-8">
-              <IconBolt className="w-4 h-4 text-sand" />
-              <span className="text-[13px] font-semibold tracking-widest uppercase text-accent">
+            <div className="reveal inline-flex items-center gap-3 bg-white border border-sand-lt rounded-full pl-2 pr-5 py-2 mb-8 shadow-md shadow-sand/20">
+              <span className="relative w-9 h-9 rounded-full overflow-hidden ring-2 ring-sand/40 flex-shrink-0">
+                <Image src="/logo.png" alt="Selmasi logo" width={36} height={36} className="object-cover" />
+              </span>
+              <span className="text-[13px] font-bold tracking-widest uppercase bg-gradient-to-r from-accent via-sand-dk to-sand bg-clip-text text-transparent">
                 Practical Automation
               </span>
+              <span className="w-2 h-2 rounded-full bg-[#25D366] pulse-dot flex-shrink-0" />
             </div>
 
             <h1 className="reveal font-display text-[2.9rem] md:text-[3.8rem] lg:text-[4.5rem] font-bold text-brown leading-[1.06] mb-7">
