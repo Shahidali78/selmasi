@@ -6,11 +6,9 @@
 
 export const site = {
   name: 'Selmasi',
-  tagline: 'Smart Business Automation',
   email: 'Info@selmasi.africa',
   phone: '061 134 0644',
   landline: '012 004 8510',
-  whatsapp: '27611340644',
   whatsappUrl: 'https://wa.me/27611340644',
 }
 
@@ -27,8 +25,6 @@ export const waMessages = {
     `Hi Selmasi, I am interested in your ${serviceName} service. Please send me more information.`,
   packageEnquiry: (packageName) =>
     `Hi Selmasi, I am interested in the ${packageName} school automation package. Please send me more details.`,
-  packageDetails: (packageName) =>
-    `Hi Selmasi, please send me the full details and feature list for the ${packageName} school automation package.`,
   calculator: (packageName, learners) =>
     `Hi, I am interested in the ${packageName} school automation package. Number of learners: ${learners}. Please send me the next steps.`,
   mountain: (people, total) =>
