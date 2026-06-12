@@ -9,34 +9,22 @@ const INITIAL = { name: '', business: '', phone: '', email: '', service: '', mes
 export default function ContactForm() {
   const ref = useReveal()
   const [form, setForm] = useState(INITIAL)
-  const [status, setStatus] = useState('idle') // idle | loading | sent | whatsapp
+  const [status, setStatus] = useState('idle') // idle | whatsapp
   const [error, setError] = useState('')
 
   const update = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }))
 
-  const submit = async (e) => {
+  const submit = (e) => {
     e.preventDefault()
     setError('')
     if (!form.name.trim() || !form.email.trim()) {
       setError('Please fill in your name and email.')
       return
     }
-    setStatus('loading')
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      })
-      if (!res.ok) throw new Error()
-      setStatus('sent')
-      setForm(INITIAL)
-    } catch {
-      // Email service unavailable — hand the enquiry over to WhatsApp instead
-      window.open(waLink(waMessages.contactForm(form)), '_blank', 'noopener,noreferrer')
-      setStatus('whatsapp')
-      setForm(INITIAL)
-    }
+    // Static hosting (no email server) — deliver the enquiry via WhatsApp
+    window.open(waLink(waMessages.contactForm(form)), '_blank', 'noopener,noreferrer')
+    setStatus('whatsapp')
+    setForm(INITIAL)
   }
 
   const inputCls = 'w-full bg-beige border-[1.5px] border-beige-md focus:border-sand focus:ring-2 focus:ring-sand/20 rounded-xl px-4 py-3.5 text-brown text-[15px] outline-none transition'
@@ -101,13 +89,10 @@ export default function ContactForm() {
               <textarea id="cf-message" className={`${inputCls} min-h-[120px] resize-y`} placeholder="Tell us about your needs..." value={form.message} onChange={update('message')} />
             </div>
             {error && <div className="mb-4 bg-red-50 border border-red-200 rounded-xl p-3 text-red-700 text-sm">{error}</div>}
-            <button type="submit" disabled={status === 'loading'}
-              className="w-full bg-brown hover:bg-accent disabled:opacity-60 text-white font-semibold text-[15px] py-4 rounded-xl transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2">
-              {status === 'loading' ? 'Sending…' : `${contact.btnText} →`}
+            <button type="submit"
+              className="w-full bg-brown hover:bg-accent text-white font-semibold text-[15px] py-4 rounded-xl transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2">
+              {contact.btnText} →
             </button>
-            {status === 'sent' && (
-              <div className="mt-4 bg-green-50 border border-green-200 rounded-xl p-4 text-green-800 text-sm">{contact.successMsg}</div>
-            )}
             {status === 'whatsapp' && (
               <div className="mt-4 bg-green-50 border border-green-200 rounded-xl p-4 text-green-800 text-sm flex items-start gap-2.5">
                 <IconWhatsApp className="w-4 h-4 mt-0.5 flex-shrink-0 text-[#25D366]" />

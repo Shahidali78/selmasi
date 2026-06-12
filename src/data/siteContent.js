@@ -174,7 +174,6 @@ export const contact = {
   title: 'Contact Us',
   text: 'Ready to improve your business with practical automation? Send us your details and we will get in touch.',
   btnText: 'Send Message',
-  successMsg: "Thank you! We've received your message and will be in touch shortly.",
   whatsappFallbackMsg: 'Opening WhatsApp with your enquiry — just press send to reach us instantly.',
   serviceOptions: [
     'Lead Response Automation',
