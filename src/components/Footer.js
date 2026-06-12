@@ -6,7 +6,7 @@ import { IconWhatsApp } from '@/components/Icons'
 export default function Footer() {
   return (
     <footer className="bg-brown text-white pt-14 pb-8">
-      <div className="max-w-6xl mx-auto px-5">
+      <div className="max-w-7xl mx-auto px-5 md:px-8">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
           <div>
             <div className="flex items-center gap-3 mb-4">

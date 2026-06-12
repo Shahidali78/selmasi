@@ -52,7 +52,6 @@ export const nav = {
     { label: 'School Packages', href: '#packages'          },
     { label: 'Calculator',      href: '#calculator'        },
     { label: 'Mountain Climbing', href: '#mountain-climbing' },
-    { label: 'Testimonials',    href: '#testimonials'      },
     { label: 'Contact',         href: '#contact'           },
   ],
 }
@@ -206,29 +205,6 @@ export const whatsapp = {
   btnText: 'Chat on WhatsApp',
 }
 
-export const testimonials = {
-  label: 'Social Proof',
-  title: 'What Clients Say',
-  subtitle: 'Feedback from businesses and schools we have worked with.',
-  items: [
-    {
-      name: 'Thandi M.',
-      role: 'School Administrator, Pretoria',
-      quote: 'Enrollment season used to mean stacks of paper forms. Now parents apply online and we see everything in one dashboard. It saved our office hours every single day.',
-    },
-    {
-      name: 'Johan v.d. Berg',
-      role: 'Small Business Owner, Centurion',
-      quote: 'Before, enquiries sat unanswered until the evening. Now every lead gets an instant WhatsApp reply, and we follow up the same day. We stopped losing customers to slow responses.',
-    },
-    {
-      name: 'Naledi K.',
-      role: 'Operations Manager, Johannesburg',
-      quote: 'The booking and reminder system simply works. Fewer no-shows, fewer phone calls, and our admin team finally has time for the important things.',
-    },
-  ],
-}
-
 export const faqs = [
   { q: 'What does Selmasi do?', a: 'Selmasi helps businesses and schools improve operations with practical automation solutions.' },
   { q: 'How do I get started?', a: 'Send us a message through the contact form or WhatsApp and we will guide you through the next steps.' },
@@ -256,7 +232,7 @@ export const footer = {
     { label: 'Services',        href: '#services'   },
     { label: 'School Packages', href: '#packages'   },
     { label: 'Calculator',      href: '#calculator' },
-    { label: 'Testimonials',    href: '#testimonials' },
+    { label: 'Mountain Climbing', href: '#mountain-climbing' },
     { label: 'Contact',         href: '#contact'    },
   ],
   copy: `© ${new Date().getFullYear()} Selmasi. All rights reserved.`,

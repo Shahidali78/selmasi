@@ -7,7 +7,7 @@ export default function Pricing() {
   const ref = useReveal()
   return (
     <section ref={ref} id="packages" className="py-20 md:py-28">
-      <div className="max-w-6xl mx-auto px-5">
+      <div className="max-w-7xl mx-auto px-5 md:px-8">
         <div className="reveal text-center mb-14">
           <p className="section-label">{pricing.label}</p>
           <h2 className="section-title mx-auto">{pricing.title}</h2>

@@ -43,7 +43,7 @@ export default function ContactForm() {
 
   return (
     <section ref={ref} id="contact" className="py-20 md:py-28">
-      <div className="max-w-6xl mx-auto px-5">
+      <div className="max-w-7xl mx-auto px-5 md:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div className="reveal">
             <p className="section-label">{contact.label}</p>

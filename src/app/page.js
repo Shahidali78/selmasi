@@ -6,7 +6,6 @@ import Pricing          from '@/components/Pricing'
 import Calculator       from '@/components/Calculator'
 import Value            from '@/components/Value'
 import MountainClimbing from '@/components/MountainClimbing'
-import Testimonials     from '@/components/Testimonials'
 import ContactForm      from '@/components/ContactForm'
 import Booking          from '@/components/Booking'
 import WhatsAppCTA      from '@/components/WhatsAppCTA'
@@ -26,7 +25,6 @@ export default function Home() {
         <Value />
         <MountainClimbing />
         <WhatsAppCTA />
-        <Testimonials />
         <ContactForm />
         <Booking />
       </main>

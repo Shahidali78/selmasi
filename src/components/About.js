@@ -6,7 +6,7 @@ export default function About() {
   const ref = useReveal()
   return (
     <section ref={ref} className="bg-brown-md py-16 md:py-24">
-      <div className="max-w-6xl mx-auto px-5">
+      <div className="max-w-7xl mx-auto px-5 md:px-8">
         <div className="flex flex-col md:flex-row md:items-center gap-10 md:gap-16">
           <div className="flex-1 reveal">
             <p className="section-label text-sand">{about.label}</p>

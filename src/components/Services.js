@@ -9,7 +9,7 @@ export default function Services() {
   const ref = useReveal()
   return (
     <section ref={ref} id="services" className="bg-beige py-20 md:py-28">
-      <div className="max-w-6xl mx-auto px-5">
+      <div className="max-w-7xl mx-auto px-5 md:px-8">
         <div className="reveal">
           <p className="section-label">{services.label}</p>
           <h2 className="section-title">{services.title}</h2>
