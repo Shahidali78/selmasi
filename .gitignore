@@ -1,6 +1,15 @@
 node_modules/
 .next/
 out/
+.env
 .env.local
 .claude/
 .vercel/
+
+# PayFast secrets & logs (server-side only — never commit)
+public/payfast/config.local.php
+public/payfast/*.log
+public/payfast/.ht_*.log
+
+# Build/upload artifact
+selmasi-site.zip

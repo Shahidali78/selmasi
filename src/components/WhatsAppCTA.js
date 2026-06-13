@@ -6,8 +6,8 @@ import { IconWhatsApp } from '@/components/Icons'
 export default function WhatsAppCTA() {
   const ref = useReveal()
   return (
-    <section ref={ref} className="py-16 md:py-20 text-center bg-cream border-y border-beige-md">
-      <div className="max-w-7xl mx-auto px-5 md:px-8">
+    <section ref={ref} className="section-pad-sm text-center bg-cream border-y border-beige-md">
+      <div className="container-x">
         <p className="reveal text-muted text-base md:text-lg mb-6 max-w-md mx-auto leading-relaxed">
           {whatsapp.text}
         </p>

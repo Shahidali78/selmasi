@@ -1,8 +1,9 @@
 'use client'
 import { useState } from 'react'
 import { useReveal } from '@/hooks/useReveal'
-import { mountainClimbing, waLink, waMessages } from '@/data/siteContent'
+import { mountainClimbing, payfast, waLink, waMessages } from '@/data/siteContent'
 import { IconWhatsApp, IconMountain } from '@/components/Icons'
+import PayfastButton from '@/components/PayfastButton'
 
 export default function MountainClimbing() {
   const ref = useReveal()
@@ -13,24 +14,27 @@ export default function MountainClimbing() {
   const total = validPeople ? people * mountainClimbing.pricePerPerson : 0
 
   return (
-    <section ref={ref} id="mountain-climbing" className="bg-beige py-20 md:py-28">
-      <div className="max-w-7xl mx-auto px-5 md:px-8">
-        <div className="reveal max-w-2xl mx-auto">
-          <p className="section-label">{mountainClimbing.label}</p>
-          <h2 className="section-title">{mountainClimbing.title}</h2>
-          <p className="text-muted text-lg leading-relaxed mb-9">{mountainClimbing.text}</p>
-
-          <div className="bg-cream rounded-2xl border-2 border-beige-md p-8 md:p-12">
-            {/* Price note */}
-            <div className="mb-7 bg-beige rounded-xl p-5 border border-beige-md flex items-center gap-4">
-              <div className="w-11 h-11 rounded-xl bg-cream border border-sand-lt flex items-center justify-center text-sand flex-shrink-0">
-                <IconMountain className="w-5 h-5" />
-              </div>
-              <p className="text-base font-medium text-brown">{mountainClimbing.priceNote}</p>
+    <section ref={ref} id="mountain-climbing" className="section-pad-sm">
+      <div className="container-x">
+        <div className="reveal max-w-5xl mx-auto rounded-2xl border border-beige-md bg-beige overflow-hidden grid md:grid-cols-[1.1fr_1fr]">
+          {/* Left — context / optional activity */}
+          <div className="p-7 md:p-9 flex flex-col justify-center">
+            <div className="flex items-center gap-2.5 mb-3">
+              <span className="w-9 h-9 rounded-xl bg-cream border border-sand-lt flex items-center justify-center text-sand flex-shrink-0">
+                <IconMountain className="w-[18px] h-[18px]" />
+              </span>
+              <span className="text-[12px] font-semibold tracking-[0.16em] uppercase text-sand">{mountainClimbing.label}</span>
             </div>
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-brown mb-2">{mountainClimbing.title}</h2>
+            <p className="text-muted text-[15px] leading-relaxed mb-4">{mountainClimbing.text}</p>
+            <p className="inline-flex items-center gap-2 text-sm font-semibold text-brown">
+              <span className="bg-sand/15 text-sand-dk rounded-full px-3 py-1">{mountainClimbing.priceNote}</span>
+            </p>
+          </div>
 
-            {/* People input — simple field, any number from 1 upward */}
-            <label htmlFor="mc-people" className="block text-[15px] font-semibold text-brown mb-2">
+          {/* Right — compact booking widget */}
+          <div className="bg-cream border-t md:border-t-0 md:border-l border-beige-md p-7 md:p-9">
+            <label htmlFor="mc-people" className="block text-sm font-semibold text-brown mb-2">
               {mountainClimbing.fieldLabel}
             </label>
             <input
@@ -40,43 +44,43 @@ export default function MountainClimbing() {
               placeholder="e.g. 10"
               value={value}
               onChange={(e) => setValue(e.target.value)}
-              className="w-full bg-beige border-[1.5px] border-beige-md focus:border-sand focus:ring-2 focus:ring-sand/20 rounded-xl px-5 py-4 text-brown text-base outline-none transition mb-7"
+              className="w-full bg-beige border-[1.5px] border-beige-md focus:border-sand focus:ring-2 focus:ring-sand/20 rounded-xl px-4 py-3.5 text-brown text-base outline-none transition mb-4"
             />
 
-            {/* Total display */}
-            <div className="bg-beige rounded-xl border border-beige-md p-6 mb-7">
-              <div className="flex items-baseline justify-between mb-1">
-                <p className="text-[13px] text-muted font-medium">{mountainClimbing.title}</p>
-                <p className="text-[13px] text-muted">
-                  {validPeople
-                    ? `${people} ${people === 1 ? 'person' : 'people'} × R${mountainClimbing.pricePerPerson}`
-                    : `R${mountainClimbing.pricePerPerson} per person`}
-                </p>
-              </div>
-              <p className="font-display text-4xl md:text-5xl font-bold text-brown">
+            <div className="flex items-baseline justify-between mb-5">
+              <span className="text-sm text-muted">{mountainClimbing.totalLabel}</span>
+              <span className="font-display text-2xl font-bold text-brown">
                 {validPeople ? `R${total.toLocaleString('en-US')}` : '—'}
-              </p>
-              <p className="text-[13px] text-muted mt-1.5">{mountainClimbing.totalLabel}</p>
+              </span>
             </div>
 
-            {/* Booking CTA — enquiry only, no payment */}
-            <a
-              href={validPeople ? waLink(waMessages.mountain(people, total)) : undefined}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-disabled={!validPeople}
-              onClick={(e) => { if (!validPeople) e.preventDefault() }}
-              className={`w-full font-semibold text-base py-[18px] rounded-xl transition-all flex items-center justify-center gap-2.5 ${
-                validPeople
-                  ? 'bg-[#25D366] hover:bg-[#1ebe5c] text-white hover:-translate-y-0.5 cursor-pointer'
-                  : 'bg-beige-md text-muted cursor-not-allowed'
-              }`}
-            >
-              <IconWhatsApp className="w-5 h-5" />
-              {validPeople ? mountainClimbing.btnText : 'Enter number of people'}
-            </a>
+            <div className="space-y-2.5">
+              {/* Pay the calculated total online */}
+              <PayfastButton
+                type={payfast.types.mountain}
+                qty={validPeople ? people : undefined}
+                disabled={!validPeople}
+                label={validPeople ? `Pay R${total.toLocaleString('en-US')} with PayFast` : 'Enter number of people'}
+              />
+              {/* Or book via WhatsApp (enquiry only) */}
+              <a
+                href={validPeople ? waLink(waMessages.mountain(people, total)) : undefined}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-disabled={!validPeople}
+                onClick={(e) => { if (!validPeople) e.preventDefault() }}
+                className={`w-full font-semibold text-[15px] py-3.5 rounded-xl transition-all flex items-center justify-center gap-2.5 ${
+                  validPeople
+                    ? 'bg-[#25D366] hover:bg-[#1ebe5c] text-white hover:-translate-y-0.5 cursor-pointer'
+                    : 'bg-beige-md text-muted cursor-not-allowed'
+                }`}
+              >
+                <IconWhatsApp className="w-[18px] h-[18px]" />
+                {validPeople ? mountainClimbing.btnText : 'Enter number of people'}
+              </a>
+            </div>
 
-            <p className="mt-4 text-[13px] text-center text-muted leading-relaxed">
+            <p className="mt-3 text-[12px] text-center text-muted leading-relaxed">
               {mountainClimbing.note}
             </p>
           </div>

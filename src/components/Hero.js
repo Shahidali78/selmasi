@@ -3,7 +3,13 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { useReveal } from '@/hooks/useReveal'
 import { hero, waLink, waMessages } from '@/data/siteContent'
-import { IconWhatsApp, IconBolt, IconCalendar, IconUser, IconBell, IconCheck } from '@/components/Icons'
+import { IconWhatsApp, IconBolt, IconCalendar, IconUser, IconBell, IconCheck, IconClock } from '@/components/Icons'
+
+const TRUST = [
+  { Icon: IconClock,    label: '24/7 automation' },
+  { Icon: IconBolt,     label: 'Faster response' },
+  { Icon: IconCheck,    label: 'Built for SA businesses & schools' },
+]
 
 const FLOW_STEPS = [
   {
@@ -143,7 +149,7 @@ export default function Hero() {
   const ref = useReveal()
 
   return (
-    <section ref={ref} id="home" className="relative min-h-screen flex items-center overflow-hidden pt-16">
+    <section ref={ref} id="home" className="relative overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -153,32 +159,32 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative max-w-7xl mx-auto px-5 md:px-8 w-full py-20 md:py-28">
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+      <div className="relative max-w-7xl mx-auto px-5 md:px-8 w-full pt-28 pb-16 md:pt-36 md:pb-24">
+        <div className="grid lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-16 items-center">
           <div>
-            <div className="reveal inline-flex items-center gap-3 bg-white border border-sand-lt rounded-full pl-2 pr-5 py-2 mb-8 shadow-md shadow-sand/20">
-              <span className="relative w-9 h-9 rounded-full overflow-hidden ring-2 ring-sand/40 flex-shrink-0">
-                <Image src="/logo.png" alt="Selmasi logo" width={36} height={36} className="object-cover" />
+            <div className="reveal inline-flex items-center gap-2.5 bg-white border border-sand-lt rounded-full pl-2 pr-4 py-1.5 mb-6 shadow-md shadow-sand/20">
+              <span className="relative w-8 h-8 rounded-full overflow-hidden ring-2 ring-sand/40 flex-shrink-0">
+                <Image src="/logo.png" alt="Selmasi logo" width={32} height={32} className="object-cover" />
               </span>
-              <span className="text-[13px] font-bold tracking-widest uppercase bg-gradient-to-r from-accent via-sand-dk to-sand bg-clip-text text-transparent">
+              <span className="text-[12px] font-bold tracking-widest uppercase bg-gradient-to-r from-accent via-sand-dk to-sand bg-clip-text text-transparent">
                 Practical Automation
               </span>
               <span className="w-2 h-2 rounded-full bg-[#25D366] pulse-dot flex-shrink-0" />
             </div>
 
-            <h1 className="reveal font-display text-[2.9rem] md:text-[3.8rem] lg:text-[4.5rem] font-bold text-brown leading-[1.06] mb-7">
+            <h1 className="reveal font-display text-[2.6rem] md:text-[3.4rem] lg:text-[4rem] font-bold text-brown leading-[1.07] mb-5">
               Smart Business Automation for{' '}
               <span className="text-sand">Growing Companies</span>
             </h1>
 
-            <p className="reveal text-muted text-lg md:text-xl leading-relaxed mb-10 max-w-[580px]">
+            <p className="reveal text-muted text-lg md:text-xl leading-relaxed mb-8 max-w-[560px]">
               {hero.subheading}
             </p>
 
-            <div className="reveal flex flex-col sm:flex-row gap-4 mb-11">
+            <div className="reveal flex flex-col sm:flex-row gap-3.5 mb-8">
               <a
                 href="#contact"
-                className="inline-flex justify-center items-center gap-2 bg-brown hover:bg-accent text-white font-semibold text-base px-9 py-[18px] rounded-xl transition-all hover:-translate-y-0.5 shadow-md"
+                className="inline-flex justify-center items-center gap-2 bg-brown hover:bg-accent text-white font-semibold text-base px-8 py-4 rounded-xl transition-all hover:-translate-y-0.5 shadow-md"
               >
                 {hero.cta1} →
               </a>
@@ -186,19 +192,26 @@ export default function Hero() {
                 href={waLink(waMessages.general)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex justify-center items-center gap-2.5 bg-[#25D366] hover:bg-[#1ebe5c] text-white font-semibold text-base px-9 py-[18px] rounded-xl transition-all hover:-translate-y-0.5 shadow-sm"
+                className="inline-flex justify-center items-center gap-2.5 bg-[#25D366] hover:bg-[#1ebe5c] text-white font-semibold text-base px-8 py-4 rounded-xl transition-all hover:-translate-y-0.5 shadow-sm"
               >
                 <IconWhatsApp className="w-5 h-5" />
                 {hero.cta2}
               </a>
             </div>
 
-            <p className="reveal text-base text-muted leading-relaxed border-t border-beige-md pt-8 max-w-[540px]">
-              {hero.intro}
-            </p>
+            <ul className="reveal flex flex-wrap gap-x-6 gap-y-3 border-t border-beige-md pt-6">
+              {TRUST.map((t) => (
+                <li key={t.label} className="flex items-center gap-2 text-[15px] font-medium text-brown/80">
+                  <span className="w-7 h-7 rounded-lg bg-sand/15 text-sand-dk flex items-center justify-center flex-shrink-0">
+                    <t.Icon className="w-4 h-4" />
+                  </span>
+                  {t.label}
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="hidden md:block reveal">
+          <div className="reveal mt-4 lg:mt-0">
             <AutomationMockup />
           </div>
         </div>

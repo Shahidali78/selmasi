@@ -1,0 +1,12 @@
+# Selmasi PayFast backend — block direct web access to secrets & logs.
+# create.php and notify.php remain publicly reachable (PayFast needs notify.php).
+
+<FilesMatch "(config\.(local|example)\.php|.*\.log)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>

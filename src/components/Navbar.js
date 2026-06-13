@@ -21,15 +21,15 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 md:px-8">
-        <div className="flex items-center justify-between h-[72px] md:h-20">
-          <a href="#home" className="flex items-center gap-3">
-            <Image src="/logo.png" alt="Selmasi" width={56} height={56} className="rounded-full shadow-sm" priority />
-            <span className="font-display text-[1.7rem] font-bold text-brown">Selmasi</span>
+        <div className="flex items-center justify-between h-16 md:h-[68px]">
+          <a href="#home" className="flex items-center gap-2.5">
+            <Image src="/logo.png" alt="Selmasi" width={44} height={44} className="rounded-full shadow-sm" priority />
+            <span className="font-display text-[1.45rem] font-bold text-brown">Selmasi</span>
           </a>
 
-          <nav className="hidden lg:flex items-center gap-9">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
             {nav.links.map((l) => (
-              <a key={l.href} href={l.href} className="text-base font-semibold text-brown/75 hover:text-brown transition-colors relative after:absolute after:left-0 after:-bottom-1.5 after:h-0.5 after:w-0 after:bg-sand after:transition-all after:duration-300 hover:after:w-full">
+              <a key={l.href} href={l.href} className="text-[15px] font-semibold text-brown/75 hover:text-brown transition-colors relative after:absolute after:left-0 after:-bottom-1.5 after:h-0.5 after:w-0 after:bg-sand after:transition-all after:duration-300 hover:after:w-full">
                 {l.label}
               </a>
             ))}
@@ -39,9 +39,9 @@ export default function Navbar() {
             href={waLink(waMessages.general)}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden lg:inline-flex items-center gap-2.5 bg-[#25D366] hover:bg-[#1ebe5c] text-white text-base font-semibold px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 shadow-sm hover:shadow-md"
+            className="hidden lg:inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5c] text-white text-[15px] font-semibold px-5 py-2.5 rounded-full transition-all hover:-translate-y-0.5 shadow-sm hover:shadow-md"
           >
-            <IconWhatsApp className="w-5 h-5" />
+            <IconWhatsApp className="w-[18px] h-[18px]" />
             WhatsApp
           </a>
 

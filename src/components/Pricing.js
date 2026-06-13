@@ -1,20 +1,21 @@
 'use client'
 import { useReveal } from '@/hooks/useReveal'
-import { pricing, waLink, waMessages } from '@/data/siteContent'
+import { pricing, payfast, waLink, waMessages } from '@/data/siteContent'
 import { IconWhatsApp, IconCheck } from '@/components/Icons'
+import PayfastButton from '@/components/PayfastButton'
 
 export default function Pricing() {
   const ref = useReveal()
   return (
-    <section ref={ref} id="packages" className="py-20 md:py-28">
-      <div className="max-w-7xl mx-auto px-5 md:px-8">
-        <div className="reveal text-center mb-14">
+    <section ref={ref} id="packages" className="section-pad">
+      <div className="container-x">
+        <div className="reveal text-center max-w-2xl mx-auto mb-10 md:mb-12">
           <p className="section-label">{pricing.label}</p>
           <h2 className="section-title mx-auto">{pricing.title}</h2>
-          <p className="text-muted text-base leading-relaxed max-w-lg mx-auto">{pricing.subtitle}</p>
+          <p className="text-muted text-base md:text-lg leading-relaxed">{pricing.subtitle}</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 mb-14">
+        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-12 md:mb-16">
           {pricing.plans.map((plan) => {
             const featured = !!plan.featured
             return (
@@ -58,22 +59,30 @@ export default function Pricing() {
                     </p>
                   </div>
 
-                  <div className="mt-auto grid sm:grid-cols-2 gap-3">
-                    <a
-                      href={waLink(waMessages.packageEnquiry(plan.name))}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5c] text-white font-semibold text-sm px-5 py-3.5 rounded-xl transition-all hover:-translate-y-0.5"
-                    >
-                      <IconWhatsApp className="w-4 h-4" />
-                      {pricing.enquireBtn}
-                    </a>
-                    <a
-                      href="#contact"
-                      className="inline-flex items-center justify-center gap-2 bg-cream border-2 border-brown text-brown hover:bg-brown hover:text-white font-semibold text-sm px-5 py-3.5 rounded-xl transition-all"
-                    >
-                      {pricing.detailsBtn}
-                    </a>
+                  <div className="mt-auto">
+                    <div className="grid sm:grid-cols-2 gap-3 mb-3">
+                      <a
+                        href={waLink(waMessages.packageEnquiry(plan.name))}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5c] text-white font-semibold text-sm px-5 py-3.5 rounded-xl transition-all hover:-translate-y-0.5"
+                      >
+                        <IconWhatsApp className="w-4 h-4" />
+                        {pricing.enquireBtn}
+                      </a>
+                      <a
+                        href="#contact"
+                        className="inline-flex items-center justify-center gap-2 bg-cream border-2 border-brown text-brown hover:bg-brown hover:text-white font-semibold text-sm px-5 py-3.5 rounded-xl transition-all"
+                      >
+                        {pricing.detailsBtn}
+                      </a>
+                    </div>
+                    {/* Optional online payment of the once-off setup fee */}
+                    <PayfastButton
+                      type={plan.payType}
+                      label={`Pay Setup Fee · R${plan.setup.toLocaleString()}`}
+                    />
+                    <p className="mt-2 text-center text-[11px] text-muted">{payfast.secureNote}</p>
                   </div>
                 </div>
               </div>
@@ -81,7 +90,7 @@ export default function Pricing() {
           })}
         </div>
 
-        <div className="reveal">
+        <div className="reveal max-w-5xl mx-auto">
           <h3 className="font-display text-xl font-bold text-brown mb-2">Monthly Pricing Examples</h3>
           <p className="text-muted text-sm mb-5">
             First {pricing.learnerLimit} learners: R{pricing.plans[0].monthly.toLocaleString()} flat.
@@ -116,10 +125,14 @@ export default function Pricing() {
           </div>
         </div>
 
-        <div className="text-center mt-10">
+        <div className="reveal max-w-5xl mx-auto mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 bg-brown rounded-2xl px-7 py-6">
+          <div className="text-center sm:text-left">
+            <p className="font-display text-lg font-bold text-white">Not sure which package fits?</p>
+            <p className="text-white/55 text-sm">Estimate your setup fee and monthly cost by learner count.</p>
+          </div>
           <a
             href="#calculator"
-            className="inline-flex items-center gap-2 bg-sand hover:bg-sand-dk text-white font-semibold text-[15px] px-8 py-3.5 rounded-lg transition-all hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 bg-sand hover:bg-sand-dk text-white font-semibold text-[15px] px-7 py-3.5 rounded-xl transition-all hover:-translate-y-0.5 whitespace-nowrap shadow-md"
           >
             Estimate Your Package →
           </a>

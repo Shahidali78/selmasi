@@ -15,15 +15,15 @@ const tiles = [
 export default function Services() {
   const ref = useReveal()
   return (
-    <section ref={ref} id="services" className="bg-beige py-20 md:py-28">
-      <div className="max-w-7xl mx-auto px-5 md:px-8">
-        <div className="reveal">
+    <section ref={ref} id="services" className="bg-beige section-pad">
+      <div className="container-x">
+        <div className="reveal max-w-2xl">
           <p className="section-label">{services.label}</p>
           <h2 className="section-title">{services.title}</h2>
           <p className="section-sub">{services.subtitle}</p>
         </div>
 
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="mt-10 md:mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {services.items.map((s, i) => {
             const { Icon, cls } = tiles[i % tiles.length]
             return (

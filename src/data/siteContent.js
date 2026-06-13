@@ -121,6 +121,7 @@ export const pricing = {
   plans: [
     {
       name: 'Entry Level',
+      payType: 'entry_level',
       setup: 8500,
       monthly: 1500,
       bestFor: 'Small to mid-sized schools looking to capture leads and reduce manual enrollment work.',
@@ -135,6 +136,7 @@ export const pricing = {
     },
     {
       name: 'Premium',
+      payType: 'premium',
       setup: 16500,
       monthly: 1500,
       featured: true,
@@ -216,8 +218,29 @@ export const mountainClimbing = {
   fieldLabel: 'Number of People',
   totalLabel: 'Estimated Total',
   btnText: 'Contact to Book',
-  note: 'Booking is confirmed via WhatsApp or the contact form — no online payment required.',
+  note: 'Pay securely with PayFast, or book via WhatsApp — your choice.',
   pricePerPerson: 60,
+}
+
+// ─────────────────────────────────────────────────────────────
+// PayFast online payments.
+// IMPORTANT: the browser only ever sends a payment *type* (and an
+// optional quantity) to the server endpoint. The authoritative amount
+// is calculated, validated and signed server-side in public/payfast/.
+// No merchant credentials, prices or signatures live in client code.
+// The display values below MUST match the server price list in
+// public/payfast/payfast.php (pf_prices()).
+// ─────────────────────────────────────────────────────────────
+export const payfast = {
+  enabled: true,
+  createUrl: '/payfast/create.php', // server-side PHP endpoint (same domain)
+  payBtn: 'Pay with PayFast',
+  secureNote: 'Secure payment powered by PayFast',
+  types: {
+    entryLevel: 'entry_level',
+    premium: 'premium',
+    mountain: 'mountain_climbing',
+  },
 }
 
 export const footer = {

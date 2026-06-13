@@ -30,13 +30,13 @@ export default function ContactForm() {
   const inputCls = 'w-full bg-beige border-[1.5px] border-beige-md focus:border-sand focus:ring-2 focus:ring-sand/20 rounded-xl px-4 py-3.5 text-brown text-[15px] outline-none transition'
 
   return (
-    <section ref={ref} id="contact" className="py-20 md:py-28">
-      <div className="max-w-7xl mx-auto px-5 md:px-8">
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          <div className="reveal">
+    <section ref={ref} id="contact" className="section-pad">
+      <div className="container-x">
+        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-14 items-start">
+          <div className="reveal lg:sticky lg:top-24">
             <p className="section-label">{contact.label}</p>
             <h2 className="section-title">{contact.title}</h2>
-            <p className="text-muted text-base leading-relaxed mb-8">{contact.text}</p>
+            <p className="text-muted text-base md:text-lg leading-relaxed mb-8">{contact.text}</p>
 
             {[
               { Icon: IconWhatsApp, label: 'WhatsApp', value: site.phone, href: waLink(waMessages.general) },

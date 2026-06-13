@@ -16,15 +16,15 @@ const tiles = [
 export default function Value() {
   const ref = useReveal()
   return (
-    <section ref={ref} id="value" className="py-20 md:py-28">
-      <div className="max-w-7xl mx-auto px-5 md:px-8">
-        <div className="reveal text-center mb-14">
+    <section ref={ref} id="value" className="section-pad">
+      <div className="container-x">
+        <div className="reveal text-center max-w-2xl mx-auto mb-10 md:mb-12">
           <p className="section-label">{value.label}</p>
           <h2 className="section-title mx-auto">{value.title}</h2>
-          <p className="text-muted text-base leading-relaxed max-w-lg mx-auto">{value.subtitle}</p>
+          <p className="text-muted text-base md:text-lg leading-relaxed">{value.subtitle}</p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {value.items.map((item, i) => {
             const { Icon, cls } = tiles[i % tiles.length]
             return (

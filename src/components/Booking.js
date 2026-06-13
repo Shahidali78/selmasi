@@ -6,13 +6,13 @@ import { IconCalendar } from '@/components/Icons'
 export default function Booking() {
   const ref = useReveal()
   return (
-    <section ref={ref} id="booking" className="bg-beige py-20 md:py-28">
-      <div className="max-w-7xl mx-auto px-5 md:px-8">
-        <div className="reveal">
+    <section ref={ref} id="booking" className="bg-beige section-pad">
+      <div className="container-x">
+        <div className="reveal text-center max-w-2xl mx-auto">
           <p className="section-label">{booking.label}</p>
-          <h2 className="section-title">{booking.title}</h2>
+          <h2 className="section-title mx-auto">{booking.title}</h2>
         </div>
-        <div className="reveal mt-10 rounded-3xl p-10 md:p-16 text-center text-white relative overflow-hidden"
+        <div className="reveal max-w-4xl mx-auto mt-8 rounded-3xl p-10 md:p-14 text-center text-white relative overflow-hidden"
           style={{ background: 'linear-gradient(135deg, #2a1a0e 0%, #8b5e2e 100%)' }}>
           <div className="relative z-10">
             <h3 className="font-display text-2xl md:text-3xl font-bold mb-4">Let's Discuss Your Needs</h3>
